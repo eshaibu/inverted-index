@@ -6,10 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-eshaibu/inverted-index.git"
+  },
   "keywords": [
     "Checkpoint 1",
     "Andela"
   ],
   "author": "Shaibu Emmanuel",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-eshaibu/inverted-index/issues"
+  },
+  "homepage": "https://github.com/andela-eshaibu/inverted-index#readme",
 }
