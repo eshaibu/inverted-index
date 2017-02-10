@@ -32,7 +32,8 @@ module.exports ={
             }
         }],
         // windows linebreaks when not in production environment
-        "linebreak-style": [2, process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
+        // "linebreak-style": [2, process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
+        "linebreak-style": [2, "windows"],
         "import/no-unresolved": 0
     }
 };
