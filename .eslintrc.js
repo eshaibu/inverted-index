@@ -1,4 +1,4 @@
-{
+module.exports ={
     "root": true,
     "extends": "airbnb-base",
     "env": {
@@ -7,7 +7,6 @@
         "jasmine": true
     },
     "rules": {
-//        "max-len": [1, 80, 2],
         "indent": [1,4],
         "one-var": 0,
         "one-var-declaration-per-line": 0,
@@ -32,7 +31,7 @@
                 "ClassDeclaration": true
             }
         }],
-        "linebreak-style": ["error", "windows"]
+        // windows linebreaks when not in production environment
+        "linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"]
     }
-}
-//'indent': [2, 'tab', { 'SwitchCase': 1, 'VariableDeclarator': 1 }]
+};
