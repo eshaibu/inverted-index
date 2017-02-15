@@ -1,0 +1,12 @@
+body{
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    background: #f6f9fc;
+    color: #777;
+}
+.search-margin{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.mb-20{
+  margin-bottom: 20px;
+}
