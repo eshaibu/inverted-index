@@ -40,10 +40,15 @@ index from the array, allowing users to search for words contained in the array.
 Files must have a specific structure for index to be created
 
 ## Contributing to the project
-(to be updated)
+* Fork this repository to your account
+* Clone your repositry: `git clone https://github.com/andela-eshaibu/inverted-index.git`
+* Create your feature branch: `git checkout -b new-feature`
+* Commit your changes: `git commit -m "message"`
+* Push to the remote branch: `git push origin new-feature`
+* Open a pull request.
 
 ## Troubleshooting & FAQ
-(to be updated)
+* https://github.com/andela-eshaibu/inverted-index/issues
 
 ### License
 MIT License
