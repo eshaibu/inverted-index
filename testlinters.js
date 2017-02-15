@@ -1,11 +1,10 @@
-let square = x => x * x;
-let add = (a, b) => a + b;
+const squareES6 = x => x * x;
+const addES6 = (a, b) => a + b;
 
-console.log(square(5)); // 25
-console.log(add(3, 4)); // 7
-console.log(pi()); // 3.1415
+console.log(squareES6(5)); // 25
+console.log(addES6(3, 4)); // 7
 
-var squareEs5 = function(x) { return x * x; };
+var square = function(x) { return x * x; };
 var add = function(a, b) { return a + b; };
 
 console.log(square(3)); // 9
