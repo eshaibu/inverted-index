@@ -1,1 +1,4 @@
 node_modules
+spec/jasmine-2.5.2
+spec/inverted-index-test.js
+karma.conf.js
