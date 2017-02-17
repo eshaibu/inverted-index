@@ -6,7 +6,7 @@ const reload = browserSync.reload;
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: './src',
+            baseDir: './UI',
             index: 'index.html'
         },
         port: process.env.PORT || 9000,
@@ -16,7 +16,7 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('watch', ['browser-sync'], () => {
-    gulp.watch(['src/js/*.js', 'src/css/*.css', 'src/*.html'], reload);
+    gulp.watch(['UI/js/*.js', 'UI/css/*.css', 'UI/*.html'], reload);
 });
 
 // default task
