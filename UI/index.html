@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" ng-controller="MainController as main">
     <div class="row mb-20">
         <div class="col-md-4">
             <h1>Inverted Index</h1>
@@ -31,9 +31,8 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a>All files</a></li>
-                        <li><a href="#">file1.json</a></li>
-                        <li><a href="#">file2.json</a></li>
+                        <li ng-click="showSearchTable()"><a>All files</a></li>
+                        <li ng-repeat="file in fileList" ng-click="showSearchTable()"><a href="#">{{ file }}</a></li>
                     </ul>
                 </div>
                 <!-- /btn-group -->
@@ -50,22 +49,18 @@
                 <div class="col-md-12">
                     <div class="list-group">
                         <a href="#" class="list-group-item active">
-                            <span class="badge">{{fileTitles.length}}</span>Documents Uploaded</a>
+                            <span class="badge">{{fileList.length}}</span>Documents Uploaded</a>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <label class="btn btn-default">
                         Upload file...<input type="file" style="display: none;" id="json-file" multiple>
                     </label>
-                    <p>Upload a JSON file only</p>
+                    <p>Upload JSON file(s) only</p>
 
-                    <div class="file-list">
-                        File 1
-                        <button class="btn btn-info pull-right btn-createIndex">Create Index</button>
-                    </div>
-                    <div class="file-list">
-                        File 2
-                        <button class="btn btn-info pull-right btn-createIndex">Create Index</button>
+                    <div class="file-list" ng-repeat="file in fileList">
+                        {{ file }}
+                        <button ng-disabled="activeFile === file" ng-click="setActiveFile(file)" class="btn btn-info pull-right btn-createIndex">Create Index</button>
                     </div>
 
                 </div>
@@ -79,7 +74,7 @@
                     <span class="label label-info"></span>
                 </div>
 
-                <table class="table show1">
+                <table class="table" ng-show="table1IsVisible">
 
                     <thead>
                         <tr>
@@ -229,6 +224,62 @@
                             <span><i class="fa fa-check" aria-hidden="true"></i></span>
                         </td>
                     </tr>
+                    <tr>
+                        <td>lord</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rings</td>
+                        <td>
+                            <span> </span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>fellowship</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ring</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <table class="table" ng-show="table2IsVisible">
+
+                    <thead>
+                    <tr>
+                        <th>Words</th>
+                        <th>Doc 1
+                            <i class="fa fa-table" aria-hidden="true"></i>
+                        </th>
+                        <th>Doc 2
+                            <i class="fa fa-table" aria-hidden="true"></i>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
                     <tr>
                         <td>lord</td>
                         <td>
