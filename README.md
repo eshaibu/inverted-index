@@ -21,7 +21,7 @@ index from the array, allowing users to search for words contained in the array.
 * Searching of a specific JSON file or all indexed JSON files.
 
 ## Why the project is useful
-(to be updated)
+This projects displays the functions of the inverted index algorithm and how it can be used to search through books and match words.
 ## Technologies
 * Node.js
 * EchmaScript 6 (JavaScript 2015)
