@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/js/inverted-index.js',
-      'spec/*.js'
+      'spec/tests/test-spec.js'
     ],
 
 
@@ -31,16 +31,20 @@ module.exports = function(config) {
       'src/js/inverted-index.js': ['coverage']
     },
 
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress', 'verbose', 'coverage', 'spec-as-html'],
+
     coverageReporter :{
       type : 'lcov',
       dir : 'coverage/'
     },
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress','coverage'],
-
+    specAsHtmlReporter: {
+      dir: 'dist', // path to write the file, defaults to `./`
+      outputFile: 'spec.html' // name of the file, defaults to `spec.html`
+    },
 
     // web server port
     port: 9876,
@@ -72,4 +76,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};

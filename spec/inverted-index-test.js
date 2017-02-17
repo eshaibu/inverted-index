@@ -1,3 +1,4 @@
+// const books = require('./books');
 const books = [
     {
         "title": "Alice in Wonderland alice",
@@ -12,7 +13,6 @@ const books = [
         "text": "Jesus Christ is the King of kings and Lord of lords alice"
     }
 ];
-
 describe('check book length', () => {
     it('book should not be empty', () => {
         expect(books.length > 0).toBeTruthy();
