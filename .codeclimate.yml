@@ -2,6 +2,15 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
-    checks:
-      import/no-unresolved:
-        enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+ratings:
+  paths:
+  - "**.js"
+exclude_paths:
+- "spec/jasmine-2.5.2"
+- "src/"
+- "gulpfile.js"
