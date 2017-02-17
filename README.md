@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/andela-eshaibu/inverted-index.svg?branch=master)](https://travis-ci.org/andela-eshaibu/inverted-index)
 [![Coverage Status](https://coveralls.io/repos/github/andela-eshaibu/inverted-index/badge.svg?branch=dev)](https://coveralls.io/github/andela-eshaibu/inverted-index?branch=dev)
-
+[![Code Climate](https://codeclimate.com/repos/58a6dc37353a10005d007b28/badges/5baf4798ca170396cebd/gpa.svg)](https://codeclimate.com/repos/58a6dc37353a10005d007b28/feed)
 
 #Inverted Index
 ##Introduction
