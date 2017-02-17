@@ -3,3 +3,4 @@ spec/jasmine-2.5.2
 spec/inverted-index-test.js
 spec/tests/test-spec.js
 karma.conf.js
+src/js/inverted-index.js

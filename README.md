@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/andela-eshaibu/inverted-index.svg?branch=master)](https://travis-ci.org/andela-eshaibu/inverted-index)
+[![Coverage Status](https://coveralls.io/repos/github/andela-eshaibu/inverted-index/badge.svg?branch=dev)](https://coveralls.io/github/andela-eshaibu/inverted-index?branch=dev)
+
+
 #Inverted Index
 ##Introduction
 An application that takes in a __JSON__ array of text objects, creates an 

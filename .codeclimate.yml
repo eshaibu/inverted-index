@@ -11,6 +11,9 @@ ratings:
   paths:
   - "**.js"
 exclude_paths:
-- "spec/jasmine-2.5.2"
-- "src/"
+- "spec/jasmine-2.5.2/"
+- "spec/inverted-index-test.js"
+- "spec/tests/test-spec.js"
 - "gulpfile.js"
+- "karma.conf.js"
+
