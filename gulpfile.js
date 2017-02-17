@@ -3,7 +3,6 @@ const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const run = require('gulp-run');
-const server = require('karma').Server;
 
 const reload = browserSync.reload;
 
@@ -37,8 +36,4 @@ gulp.task('browserify', () =>
 
 gulp.task('test', ['browserify'], (done) => {
     run('node node_modules/karma/bin/karma start karma.conf.js --single-run').exec();
-    // new server({
-    //     configFile: __dirname + '/karma.conf.js',
-    //     singleRun: true
-    // }, done).start();
 });
