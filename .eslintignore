@@ -1,1 +1,6 @@
-node_modules
+node_modules/
+spec/jasmine-2.5.2/*/*.js
+spec/inverted-index-test.js
+spec/tests/*.js
+karma.conf.js
+src/js/inverted-index.js

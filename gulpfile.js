@@ -1,5 +1,8 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const run = require('gulp-run');
 
 const reload = browserSync.reload;
 
@@ -23,3 +26,14 @@ gulp.task('watch', ['browser-sync'], () => {
 gulp.task('default', [
     'browser-sync', 'watch'
 ]);
+
+gulp.task('browserify', () =>
+    browserify('./spec/inverted-index-test.js')
+        .bundle()
+        .pipe(source('test-spec.js'))
+        .pipe(gulp.dest('./spec/tests'))
+);
+
+gulp.task('test', ['browserify'], (done) => {
+    run('node node_modules/karma/bin/karma start karma.conf.js --single-run').exec();
+});
