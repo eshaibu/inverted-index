@@ -13,6 +13,7 @@ app.controller('MainController', ['$scope', ($scope) => {
 
     /**
      * upload single or multiple files
+     * * @returns {String} success or failure message
      */
     $scope.uploadFile = () => {
         const books = Array.from(document.getElementById('json-files').files);
@@ -29,7 +30,7 @@ app.controller('MainController', ['$scope', ($scope) => {
 
     /**
      * read a book and store
-     * @param book
+     * @param {object} book
      * @returns {Promise}
      */
     $scope.bookReader = (book) => {
@@ -69,7 +70,7 @@ app.controller('MainController', ['$scope', ($scope) => {
 
     /**
      * create index for a file
-     * @param title
+     * @returns {Object} Object containing file indices
      */
     $scope.createIndex = () => {
         const value = $scope.selectedFile;
@@ -92,7 +93,8 @@ app.controller('MainController', ['$scope', ($scope) => {
 
     /**
      * search for words in file(s)
-     * @param fileName
+     * @param {string} fileName
+     * @returns {Object} Object containing search file indices
      */
     $scope.searchIndex = (fileName = 'all') => {
         const query = $scope.searchQuery;

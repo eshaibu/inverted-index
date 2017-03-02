@@ -36,8 +36,8 @@ class InvertedIndex {
     /**
      * create index
      * @function
-     * @param {jsonArray} jsonArray objects in an Array
-     * @param {title} title file title
+     * @param {array} jsonArray objects in an Array
+     * @param {title} fileName file title
      * @return {Object} index object
      */
     createIndex(jsonArray, fileName) {
@@ -63,7 +63,7 @@ class InvertedIndex {
      * getIndex method takes a file name and returns the value of the key in the
      * indexedFiles object that matches the file name
      *
-     * @param fileName
+     * @param {string} fileName
      * @returns {Object}
      */
     getIndex(fileName) {
@@ -72,8 +72,8 @@ class InvertedIndex {
 
     /**
      * searches for query in a particular file or all files
-     * @param query
-     * @param fileName
+     * @param {string} query to search for
+     * @param {string} fileName to file to search
      * @returns {Object} returns an object that contains the index of the files
      */
     searchIndex(query, fileName = 'all') {
@@ -97,7 +97,7 @@ class InvertedIndex {
 
     /**
      * Validate file
-     * @param fileObject
+     * @param {object} fileObject to validate
      * @returns {string} validation message
      */
     validateFile(fileObject) {
