@@ -9,17 +9,18 @@ const reload = browserSync.reload;
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: './UI',
+            baseDir: './src',
             index: 'index.html'
         },
         port: process.env.PORT || 9000,
         ui: false,
-        ghostMode: false
+        ghostMode: false,
+        notify: false
     });
 });
 
 gulp.task('watch', ['browser-sync'], () => {
-    gulp.watch(['UI/js/*.js', 'UI/css/*.css', 'UI/*.html'], reload);
+    gulp.watch(['src/js/*.js', 'src/css/*.css', 'src/*.html'], reload);
 });
 
 // default task
@@ -28,10 +29,10 @@ gulp.task('default', [
 ]);
 
 gulp.task('browserify', () =>
-    browserify('./spec/inverted-index-test.js')
+    browserify('./spec/tests/inverted-index-test.js')
         .bundle()
-        .pipe(source('test-spec.js'))
-        .pipe(gulp.dest('./spec/tests'))
+        .pipe(source('test-bundled.js'))
+        .pipe(gulp.dest('./spec/bundle'))
 );
 
 gulp.task('test', ['browserify'], (done) => {
