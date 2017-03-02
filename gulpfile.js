@@ -14,7 +14,8 @@ gulp.task('browser-sync', () => {
         },
         port: process.env.PORT || 9000,
         ui: false,
-        ghostMode: false
+        ghostMode: false,
+        notify: false
     });
 });
 
@@ -30,8 +31,8 @@ gulp.task('default', [
 gulp.task('browserify', () =>
     browserify('./spec/inverted-index-test.js')
         .bundle()
-        .pipe(source('test-spec.js'))
-        .pipe(gulp.dest('./spec/tests'))
+        .pipe(source('test-bundled.js'))
+        .pipe(gulp.dest('./spec/bundle'))
 );
 
 gulp.task('test', ['browserify'], (done) => {
