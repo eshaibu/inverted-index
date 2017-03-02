@@ -67,8 +67,10 @@ describe('Test for valid book data', () => {
         expect(index.validateFile(emptyArray)).toBe('Empty file');
     });
     it('Should not be an invalid file', () => {
-        expect(index.validateFile(invalidFile)).toBe('Invalid file');
         expect(index.validateFile(books)).toBe('Valid file');
+    });
+    it('Should be an invalid file', () => {
+        expect(index.validateFile(invalidFile)).toBe('Invalid file');
     });
 });
 
