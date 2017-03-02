@@ -3,3 +3,4 @@ node_modules/
 coverage/
 spec/bundle
 dist/
+npm-debug.log
