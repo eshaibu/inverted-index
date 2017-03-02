@@ -1,3 +1,5 @@
+/* eslint class-methods-use-this: "off"*/
+
 /**
  * InvertedIndex Class
  *
@@ -21,9 +23,8 @@ class InvertedIndex {
      * @return {Array} tokens
      */
     tokenize(text) {
-        this.text = text;
         const uniqueWords = [];
-        const token = this.text.toLowerCase().replace(/[^\w\s]/gi, '').match(/\w+/g);
+        const token = text.toLowerCase().replace(/[^\w\s]/gi, '').match(/\w+/g);
         token.forEach((item) => {
             if (!uniqueWords.includes(item)) {
                 uniqueWords.push(item);
@@ -100,13 +101,12 @@ class InvertedIndex {
      * @returns {string} validation message
      */
     validateFile(fileObject) {
-        this.fileObject = fileObject;
         let result = 'Valid file';
         try {
-            if (typeof this.fileObject !== 'object' || Object.keys(this.fileObject).length === 0) {
+            if (typeof fileObject !== 'object' || Object.keys(fileObject).length === 0) {
                 result = 'Empty file';
             }
-            this.fileObject.forEach((key) => {
+            fileObject.forEach((key) => {
                 if (typeof key.title !== 'string' || typeof key.text !== 'string') {
                     result = 'Invalid file content';
                 }
