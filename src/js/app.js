@@ -13,7 +13,7 @@ app.controller('MainController', ['$scope', ($scope) => {
 
     /**
      * upload single or multiple files
-     * * @returns {String} success or failure message
+     * @returns {String} success or failure message
      */
     $scope.uploadFile = () => {
         const books = Array.from(document.getElementById('json-files').files);
@@ -31,7 +31,7 @@ app.controller('MainController', ['$scope', ($scope) => {
     /**
      * read a book and store
      * @param {object} book
-     * @returns {Promise}
+     * @returns {Promise} returns promise containing file(s) uploaded
      */
     $scope.bookReader = (book) => {
         return new Promise((resolve, reject) => {

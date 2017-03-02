@@ -64,7 +64,7 @@ class InvertedIndex {
      * indexedFiles object that matches the file name
      *
      * @param {string} fileName
-     * @returns {Object}
+     * @returns {Object} Object containing file indices
      */
     getIndex(fileName) {
         return this.indexedFiles[fileName];
