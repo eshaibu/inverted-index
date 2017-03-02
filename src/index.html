@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -21,6 +20,7 @@
     <div class="row mb-20">
         <div class="col-md-4">
             <h1>Inverted Index</h1>
+            <h5>A simple and easy to use platform that allows you to create indexes and search through them</h5>
         </div>
         <div class="col-md-8 search-margin">
             <div class="input-group">
@@ -52,17 +52,28 @@
                             <span class="badge">{{fileList.length}}</span>Documents Uploaded</a>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <label class="btn btn-default">
-                        Upload file...<input type="file" style="display: none;" id="json-file" multiple>
-                    </label>
+
+                <div class="col-lg-12">
                     <p>Upload JSON file(s) only</p>
 
-                    <div class="file-list" ng-repeat="file in fileList">
-                        {{ file }}
-                        <button ng-disabled="activeFile === file" ng-click="setActiveFile(file)" class="btn btn-info pull-right btn-createIndex">Create Index</button>
+                    <div class="col-lg-7">
+                        <input type="file" name="json-files" id="json-files" accept=".json" multiple />
+                    </div>
+                    <div class="col-lg-5">
+                        <button class="btn btn-default pull-right"><i class="fa fa-plus"></i>
+                            Upload File</button>
                     </div>
 
+                </div>
+                <div class="col-md-12">
+                    <select class="form-control input-small" id="selected" ng-model='selectedFile'>
+                        <option value="" selected>Select a file to index</option>
+                        <option value={{key}} ng-repeat="(key,value) in fileList">{{value}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-offset-2 col-md-6">
+                    <button class="btn btn-primary pull-right" ng-click="showIndexTable()">Create Index</button>
                 </div>
 
             </div>
@@ -92,7 +103,7 @@
                     <tr>
                         <td>alice</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span> </span>
@@ -101,7 +112,7 @@
                     <tr>
                         <td>in</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span> </span>
@@ -110,7 +121,7 @@
                     <tr>
                         <td>wonderland</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -119,7 +130,7 @@
                     <tr>
                         <td>falls</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -128,7 +139,7 @@
                     <tr>
                         <td>into</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -137,16 +148,16 @@
                     <tr>
                         <td>a</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
                         <td>rabbit</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -155,7 +166,7 @@
                     <tr>
                         <td>hole</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -164,16 +175,16 @@
                     <tr>
                         <td>and</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
                         <td>enters</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span> </span>
@@ -182,7 +193,7 @@
                     <tr>
                         <td>world</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -191,7 +202,7 @@
                     <tr>
                         <td>full</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -200,16 +211,16 @@
                     <tr>
                         <td>of</td>
                         <td>
-                           <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                           <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
                         <td>imagination</td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                         <td>
                             <span></span>
@@ -221,7 +232,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -230,7 +241,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -239,7 +250,7 @@
                             <span> </span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -248,7 +259,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -257,7 +268,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
 
@@ -286,7 +297,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -295,7 +306,7 @@
                             <span> </span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -304,7 +315,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
                     <tr>
@@ -313,7 +324,7 @@
                             <span></span>
                         </td>
                         <td>
-                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            <span><i class="glyphicon glyphicon-ok" aria-hidden="true"></i></span>
                         </td>
                     </tr>
 
