@@ -12,8 +12,7 @@ ratings:
   - "**.js"
 exclude_paths:
 - "spec/jasmine-2.5.2/"
-- "spec/inverted-index-test.js"
-- "spec/tests/test-spec.js"
+- "spec/bundle/bundle.js"
 - "gulpfile.js"
 - "karma.conf.js"
 
