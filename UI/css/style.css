@@ -1,0 +1,23 @@
+body{
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    background: #f6f9fc;
+    color: #777;
+}
+.search-margin{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.file-list {
+    background: rgba(0, 0, 1, .5);
+    color: #fff;
+    height: 50px;
+    padding: 10px;
+    font-weight: bolder;
+    border: 1px solid grey;
+    border-radius: 3px;
+    margin: 30px 10px 10px 0;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}

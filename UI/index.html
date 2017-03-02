@@ -1,0 +1,332 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inverted Index</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body>
+<div class="container" ng-controller="MainController as main">
+    <div class="row mb-20">
+        <div class="col-md-4">
+            <h1>Inverted Index</h1>
+        </div>
+        <div class="col-md-8 search-margin">
+            <div class="input-group">
+                <input class="form-control" type="text">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false">Search
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-click="showSearchTable()"><a>All files</a></li>
+                        <li ng-repeat="file in fileList" ng-click="showSearchTable()"><a href="#">{{ file }}</a></li>
+                    </ul>
+                </div>
+                <!-- /btn-group -->
+
+            </div>
+            <!--input group -->
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            <span class="badge">{{fileList.length}}</span>Documents Uploaded</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="btn btn-default">
+                        Upload file...<input type="file" style="display: none;" id="json-file" multiple>
+                    </label>
+                    <p>Upload JSON file(s) only</p>
+
+                    <div class="file-list" ng-repeat="file in fileList">
+                        {{ file }}
+                        <button ng-disabled="activeFile === file" ng-click="setActiveFile(file)" class="btn btn-info pull-right btn-createIndex">Create Index</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading active">
+                    Index Table <i class="fa fa-file" aria-hidden="true"></i>
+                    <span class="label label-info"></span>
+                </div>
+
+                <table class="table" ng-show="table1IsVisible">
+
+                    <thead>
+                        <tr>
+                            <th>Words</th>
+                            <th>Doc 1
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                            </th>
+                            <th>Doc 2
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>alice</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span> </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>in</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span> </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>wonderland</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>falls</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>into</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rabbit</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>hole</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>and</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>enters</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span> </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>world</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>full</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>of</td>
+                        <td>
+                           <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>imagination</td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>the</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>lord</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rings</td>
+                        <td>
+                            <span> </span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>fellowship</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ring</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <table class="table" ng-show="table2IsVisible">
+
+                    <thead>
+                    <tr>
+                        <th>Words</th>
+                        <th>Doc 1
+                            <i class="fa fa-table" aria-hidden="true"></i>
+                        </th>
+                        <th>Doc 2
+                            <i class="fa fa-table" aria-hidden="true"></i>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td>lord</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rings</td>
+                        <td>
+                            <span> </span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>fellowship</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ring</td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
