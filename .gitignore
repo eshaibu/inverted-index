@@ -1,4 +1,4 @@
 node_modules/
 .idea/
-coverage/
-spec/tests
+dist/
+npm-debug.log
