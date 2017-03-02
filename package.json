@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
-    "test": "gulp test"
+    "start": "node node_modules/gulp/bin/gulp",
+    "test": "node node_modules/gulp/bin/gulp test"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   },
   "keywords": [
     "Checkpoint 1",
-    "Andela"
+    "Andela",
+    "Inveretd Index"
   ],
   "author": "Shaibu Emmanuel",
   "license": "ISC",
