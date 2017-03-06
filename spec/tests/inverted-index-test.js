@@ -23,7 +23,7 @@ describe('Files to be indexed', () => {
   });
 });
 
-describe('Tokenize JSON file and return unique words in array', () => {
+describe('JSON file tokenized', () => {
   const bookToTokenize = [{ title: 'Alice , / ?', text: 'enters a a.' }];
 
   it('should return " array " for a valid json file input', () => {

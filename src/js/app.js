@@ -83,7 +83,6 @@ app.controller('MainController', ['$scope', ($scope) => {
         invertedIndex.createIndex($scope.content, filename);
         $scope.fileIndex = invertedIndex.getIndex(filename);
         $scope.filesIndexCreated.push($scope.filesArray[value].name);
-        console.log($scope.fileIndex);
       }
     } else {
       toastr.warning('No file selected to index', 'Warning');
