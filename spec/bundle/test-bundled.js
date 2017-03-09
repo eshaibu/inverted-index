@@ -49,7 +49,7 @@ module.exports=[
 },{}],7:[function(require,module,exports){
 const books = require('../books.json');
 const adventureBooks = require('../adventure-books.json');
-const emptyArray = require('../empty.json');
+const emptyArray = require('../emptyBook.json');
 const invalidContent = require('../invalid-content.json');
 const invalidFile = require('../invalid-file.json');
 const invalidKey = require('../invalid-key.json');
@@ -72,7 +72,7 @@ describe('Files to be indexed', () => {
   });
 });
 
-describe('Tokenize JSON file and return unique words in array', () => {
+describe('JSON file tokenized', () => {
   const bookToTokenize = [{ title: 'Alice , / ?', text: 'enters a a.' }];
 
   it('should return " array " for a valid json file input', () => {
@@ -85,9 +85,24 @@ describe('Tokenize JSON file and return unique words in array', () => {
   });
 });
 
+describe('Create index for a JSON file', () => {
+  beforeAll(() => {
+    invertedIndex.createIndex(books, 'books.json');
+    invertedIndex.createIndex(adventureBooks, 'adventure-books.json');
+  });
+  it('generates the correct index', () => {
+    expect(invertedIndex.getIndex('books.json').and).toEqual(
+      [0, 1]
+    );
+    expect(invertedIndex.getIndex('adventure-books.json').bringing).toEqual(
+      [1]
+    );
+  });
+});
+
 describe('Get index of a JSON file', () => {
-  invertedIndex.createIndex(books, 'books.json');
-  invertedIndex.createIndex(adventureBooks, 'adventure-books.json');
+  // invertedIndex.createIndex(books, 'books.json');
+  // invertedIndex.createIndex(adventureBooks, 'adventure-books.json');
   it('should return `undefined` if index does not exist', () => {
     expect(invertedIndex.getIndex(' ')).toEqual(undefined);
     expect(invertedIndex.getIndex('books4')).toEqual(undefined);
@@ -192,4 +207,4 @@ describe('Search index functionality', () => {
   });
 });
 
-},{"../adventure-books.json":1,"../books.json":2,"../empty.json":3,"../invalid-content.json":4,"../invalid-file.json":5,"../invalid-key.json":6}]},{},[7]);
+},{"../adventure-books.json":1,"../books.json":2,"../emptyBook.json":3,"../invalid-content.json":4,"../invalid-file.json":5,"../invalid-key.json":6}]},{},[7]);
