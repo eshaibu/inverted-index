@@ -29,15 +29,15 @@ describe('Validate File ', () => {
   });
 });
 
-describe('Tokenized file ', () => {
+describe('Tokenize function ', () => {
   const bookToTokenize = [{ title: 'Alice , / ?', text: 'enters a a.' }];
 
-  it('should return " array " for a valid json file input', () => {
-    expect(typeof (InvertedIndex
+  it('should return an " array " of words for a file content input', () => {
+    expect(Array.isArray(InvertedIndex
       .tokenize(`${bookToTokenize[0].title} ${bookToTokenize[0].text}`)))
-      .toBe(typeof ([]));
+      .toBe(true);
   });
-  it('should return "an array of books with filtered contents"', () => {
+  it('should return an array of filtered words for a file content input', () => {
     expect(InvertedIndex
       .tokenize(`${bookToTokenize[0].title} ${bookToTokenize[0].text}`))
       .toEqual(
@@ -51,7 +51,7 @@ describe('Create index for a JSON file', () => {
     invertedIndex.createIndex(books, 'books.json');
     invertedIndex.createIndex(adventureBooks, 'adventure-books.json');
   });
-  it('generates the correct index', () => {
+  it('should generate the correct index', () => {
     expect(invertedIndex.getIndex('books.json').and)
       .toEqual(
         [0, 1]
@@ -129,25 +129,6 @@ describe('Search index functionality', () => {
           man: [1]
         }
       });
-    expect(invertedIndex.searchIndex('a king billy', 'adventure-books.json'))
-      .toEqual({
-        'adventure-books.json': {
-          a: [0, 1],
-          king: [0],
-          billy: [1]
-        }
-      });
-    expect(invertedIndex
-      .searchIndex('a rabbit alliance with man', 'books.json'))
-      .toEqual({
-        'books.json': {
-          a: [0, 1],
-          rabbit: [0],
-          alliance: [1],
-          with: [],
-          man: [1]
-        }
-    });
     expect(invertedIndex.searchIndex('a king billy', 'adventure-books.json'))
       .toEqual({
         'adventure-books.json': {
