@@ -1,6 +1,5 @@
 /**
  * InvertedIndex Class
- *
  * @class
  */
 class InvertedIndex {
@@ -49,7 +48,8 @@ class InvertedIndex {
   createIndex(fileContents, fileName) {
     const fileMap = {};
     fileContents.forEach((jsonObject, index) => {
-      const tokens = InvertedIndex.tokenize(`${jsonObject.title} ${jsonObject.text}`);
+      const tokens = InvertedIndex
+        .tokenize(`${jsonObject.title} ${jsonObject.text}`);
       tokens.forEach((token) => {
         if (token in fileMap) {
           fileMap[token].push(index);
@@ -84,7 +84,8 @@ class InvertedIndex {
    */
   searchIndex(query, fileName = 'all') {
     const result = {};
-    fileName = (fileName !== 'all') ? [fileName] : Object.keys(this.indexedFiles);
+    fileName = (fileName !== 'all') ? [fileName]
+      : Object.keys(this.indexedFiles);
     const searchWords = InvertedIndex.tokenize(query);
     fileName.forEach((file) => {
       result[file] = {};
@@ -109,7 +110,8 @@ class InvertedIndex {
   validateFile(fileObject) {
     let result = this.validationResponse.VALID_FILE;
     try {
-      if (typeof fileObject !== 'object' || Object.keys(fileObject).length === 0) {
+      if (typeof fileObject !== 'object'
+        || Object.keys(fileObject).length === 0) {
         result = this.validationResponse.EMPTY_FILE;
       }
       fileObject.forEach((key) => {
