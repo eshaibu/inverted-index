@@ -137,6 +137,25 @@ describe('Search index functionality', () => {
           billy: [1]
         }
       });
+    expect(invertedIndex
+      .searchIndex('a rabbit alliance with man', 'books.json'))
+      .toEqual({
+        'books.json': {
+          a: [0, 1],
+          rabbit: [0],
+          alliance: [1],
+          with: [],
+          man: [1]
+        }
+    });
+    expect(invertedIndex.searchIndex('a king billy', 'adventure-books.json'))
+      .toEqual({
+        'adventure-books.json': {
+          a: [0, 1],
+          king: [0],
+          billy: [1]
+        }
+      });
   });
   it('should normalize search string before search', () => {
     expect(invertedIndex
