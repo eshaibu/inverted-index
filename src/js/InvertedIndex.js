@@ -42,7 +42,7 @@ class InvertedIndex {
    * create index
    * @function
    * @param {object} fileContents objects in an Array
-   * @param {title} fileName file title
+   * @param {string} fileName file title
    * @return {Object} index object
    */
   createIndex(fileContents, fileName) {
