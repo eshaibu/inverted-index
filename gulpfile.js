@@ -29,7 +29,7 @@ gulp.task('default', [
 ]);
 
 gulp.task('browserify', () =>
-  browserify('./spec/tests/inverted-index-spec.js')
+  browserify('./spec/tests/inverted-index.spec.js')
     .bundle()
     .pipe(source('test-bundled.js'))
     .pipe(gulp.dest('./spec/bundle'))
