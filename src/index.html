@@ -43,27 +43,27 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-8 col-xs-10 col-md-offset-0 col-sm-offset-2 col-xs-offset-1">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="list-group">
                         <a href="#" class="list-group-item active">
                             <span class="badge">{{fileNamesArray.length}}</span>Documents Uploaded</a>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <p>Upload JSON file(s) only</p>
 
-                    <div class="col-lg-7">
+                    <div class="col-md-7 col-sm-7 col-xs-5">
                         <input type="file" name="json-files" id="json-files" accept=".json" multiple />
                     </div>
-                    <div class="col-lg-5">
-                        <button class="btn btn-default pull-right" ng-click="uploadFile()"><i class="fa fa-plus"></i>
+                    <div class="col-md-5 col-sm-5 col-xs-5">
+                        <button class="btn btn-default btn-sm pull-right" ng-click="uploadFile()"><i class="fa fa-plus"></i>
                             Upload File</button>
                     </div>
 
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <select class="form-control input-small" id="selected" ng-model='selectedFile'>
                         <option value="" selected>Select a file to index</option>
                         <option value={{key}} ng-repeat="(key,value) in fileNamesArray">{{value}}</option>
@@ -76,10 +76,10 @@
 
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12 col-xs-12">
             <div class="panel panel-primary" ng-if="showIndexTable && !showSearchTable">
                 <div class="panel-heading active">
-                    {{tableName}} Table <i class="fa fa-file" aria-hidden="true"></i>
+                    {{tableName}} Table <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
                     <span class="label label-info"></span>
                 </div>
 
@@ -106,7 +106,7 @@
 
             <div class="panel panel-primary mb-20" ng-repeat="(searchFileName, indices) in searchedIndexedFiles" ng-if="!showIndexTable && showSearchTable">
                 <div class="panel-heading active">
-                    {{tableName}} table for {{searchFileName}} <i class="fa fa-file" aria-hidden="true"></i>
+                    {{tableName}} table for {{searchFileName}} <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
                     <span class="label label-info"></span>
                 </div>
 
