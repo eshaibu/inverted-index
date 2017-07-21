@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/js/inverted-index.js',
+      'src/js/InvertedIndex.js',
       'spec/bundle/test-bundled.js'
     ],
 
@@ -28,7 +28,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/js/inverted-index.js': ['coverage']
+      'src/js/InvertedIndex.js': ['coverage']
     },
 
     // test results reporter to use

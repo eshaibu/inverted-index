@@ -1,52 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports=[
-  {
-    "title": "King Solomons Mines",
-    "text": "It tells of a search of an unexplored region of Africa by a group of adventurers."
-  },
-
-  {
-    "title": "Treasure Island",
-    "text": "A wild seaman, Billy Bones, comes to stay, bringing with him a large sea chest"
-  }
-]
-
-},{}],2:[function(require,module,exports){
-module.exports=[
-  {
-    "title": "Alice in Wonderland",
-    "text": "Alice falls into a rabbit hole and enters a world full of imagination."
-  },
-
-  {
-    "title": "The Lord of the Rings: The Fellowship of the Ring.",
-    "text": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
-  }
-]
-
-},{}],3:[function(require,module,exports){
-module.exports=[]
-
-},{}],4:[function(require,module,exports){
-module.exports=[
-  {
-    "title": "sample",
-    "text": true
-  }
-]
-
-},{}],5:[function(require,module,exports){
-module.exports=""
-
-},{}],6:[function(require,module,exports){
-module.exports=[
-  {
-    "t": "sample",
-    "text2": "sample"
-  }
-]
-
-},{}],7:[function(require,module,exports){
 const books = require('../books.json');
 const adventureBooks = require('../adventure-books.json');
 const emptyArray = require('../emptyBook.json');
@@ -229,5 +180,3 @@ describe('searchIndex function', () => {
       });
   });
 });
-
-},{"../adventure-books.json":1,"../books.json":2,"../emptyBook.json":3,"../invalid-content.json":4,"../invalid-file.json":5,"../invalid-key.json":6}]},{},[7]);
